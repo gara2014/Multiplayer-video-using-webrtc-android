@@ -8,7 +8,7 @@
 
 ## 相关项目地址
 iOS：https://github.com/gara2014/Multiplayer-video-using-webrtc<br>
-signal Server：https://github.com/gara2014/Signal-server
+Signal Server：https://github.com/gara2014/Signal-server
 
 ## WebRTC官方地址
 https://webrtc.org
