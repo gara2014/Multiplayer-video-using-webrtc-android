@@ -1,0 +1,15 @@
+include ':app'
+include ":webrtc>examples>AppRTCMobile_javalib"
+project(":webrtc>examples>AppRTCMobile_javalib").projectDir = new File(settingsDir, "webrtc/examples/AppRTCMobile_javalib")
+include ":webrtc>rtc_base>base_java"
+project(":webrtc>rtc_base>base_java").projectDir = new File(settingsDir, "webrtc/rtc_base/base_java")
+include ":webrtc>sdk>android>libjingle_peerconnection_metrics_default_java"
+project(":webrtc>sdk>android>libjingle_peerconnection_metrics_default_java").projectDir = new File(settingsDir, "webrtc/sdk/android/libjingle_peerconnection_metrics_default_java")
+include ":webrtc>sdk>android>libjingle_peerconnection_java"
+project(":webrtc>sdk>android>libjingle_peerconnection_java").projectDir = new File(settingsDir, "webrtc/sdk/android/libjingle_peerconnection_java")
+include ":base>base_java"
+project(":base>base_java").projectDir = new File(settingsDir, "base/base_java")
+include ":third_party>jsr-305>jsr_305_javalib"
+project(":third_party>jsr-305>jsr_305_javalib").projectDir = new File(settingsDir, "third_party/jsr-305/jsr_305_javalib")
+include ":webrtc>modules>audio_device>audio_device_java"
+project(":webrtc>modules>audio_device>audio_device_java").projectDir = new File(settingsDir, "webrtc/modules/audio_device/audio_device_java")
