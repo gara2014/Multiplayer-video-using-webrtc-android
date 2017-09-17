@@ -22,11 +22,13 @@ android {
             jniLibs.srcDirs = ['libs']
             java.srcDirs = [
                     "extracted-srcjars",
+                    "./src/main/java"
             ]
             java.filter.exclude(
             )
             res.srcDirs = [
                     "extracted-res",
+                    "./src/main/res"
             ]
         }
     }
