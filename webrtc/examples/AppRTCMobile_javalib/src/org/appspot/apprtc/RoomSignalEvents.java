@@ -6,7 +6,7 @@ import org.webrtc.SessionDescription;
 import java.util.List;
 
 
-interface RoomSignalEvents {
+public interface RoomSignalEvents {
     void onJoinRoom(final int error, final int myUserId, final List<RoomUser> other);
 
     void onSendSdp(final int error);

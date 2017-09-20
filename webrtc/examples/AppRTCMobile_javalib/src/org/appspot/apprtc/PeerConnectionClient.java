@@ -31,7 +31,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.appspot.apprtc.AppRTCClient.SignalingParameters;
 import org.webrtc.AudioSource;
 import org.webrtc.AudioTrack;
 import org.webrtc.CameraVideoCapturer;
@@ -117,7 +116,6 @@ public class PeerConnectionClient {
   private Timer statsTimer;
   private VideoRenderer.Callbacks localRender;
   private List<VideoRenderer.Callbacks> remoteRenders;
-  private SignalingParameters signalingParameters;
   private MediaConstraints pcConstraints;
   private int videoWidth;
   private int videoHeight;
@@ -152,7 +150,6 @@ public class PeerConnectionClient {
     public PCObserver pcObserver = new PCObserver();
     public SDPObserver sdpObserver = new SDPObserver();
     private SessionDescription localSdp; // either offer or answer SDP
-    public int remoteRenderIndex;
     public List<VideoRenderer.Callbacks> remoteRenders;
     private DataChannel dataChannel;
     public PeerConnectionNode() {
@@ -162,7 +159,6 @@ public class PeerConnectionClient {
       localSdp = null;
       remoteUserId = 0;
       isInitiator = false;
-      remoteRenderIndex = 0;
       remoteRenders = null;
     }
   }
@@ -393,11 +389,11 @@ public class PeerConnectionClient {
   }
 
   public void createPeerConnection(final VideoRenderer.Callbacks remoteRender, boolean isInitiator,
-                                   int remoteUserId, final int remoteRenderIndex) {
-    createPeerConnection(Collections.singletonList(remoteRender), isInitiator, remoteUserId, remoteRenderIndex);
+                                   int remoteUserId) {
+    createPeerConnection(Collections.singletonList(remoteRender), isInitiator, remoteUserId);
   }
   public void createPeerConnection(final List<VideoRenderer.Callbacks> remoteRenders, final boolean isInitiator,
-                                   final int remoteUserId, final int remoteRenderIndex) {
+                                   final int remoteUserId) {
     if (peerConnectionParameters == null) {
       Log.e(TAG, "Creating peer connection without initializing factory.");
       return;
@@ -405,7 +401,6 @@ public class PeerConnectionClient {
     PeerConnectionNode peerConnectionNode = new PeerConnectionNode();
     peerConnectionNode.isInitiator = isInitiator;
     peerConnectionNode.remoteUserId = remoteUserId;
-    peerConnectionNode.remoteRenderIndex = remoteRenderIndex;
     peerConnectionNode.remoteRenders = remoteRenders;
     peerConnectionNodes.add(peerConnectionNode);
 

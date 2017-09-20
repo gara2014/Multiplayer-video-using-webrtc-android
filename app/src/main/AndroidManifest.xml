@@ -23,7 +23,7 @@
         android:debuggable="true"
         android:supportsRtl="false">
 
-        <activity android:name=".MeetingActivity"
+        <activity android:name=".ConnectActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -32,11 +32,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="org.appspot.apprtc.SettingsActivity"
-            android:label="@string/settings_name">
-        </activity>
-
-        <activity android:name="org.appspot.apprtc.CallActivity"
+        <activity android:name=".MeetingActivity"
             android:label="@string/app_name"
             android:screenOrientation="fullUser"
             android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout"
